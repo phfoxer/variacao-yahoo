@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: webapp
+      target: builder
+    ports:
+      - 4200:4200
+    volumes:
+      - ./webapp:/project
+      - /project/node_modules

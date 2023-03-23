@@ -1,0 +1,27 @@
+<table mat-table [dataSource]="quoteList" class="mat-elevation-z8">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let element"> {{element.price | currency:'R$'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dplus1">
+        <th mat-header-cell *matHeaderCellDef> Variação em relaçào a D-1 </th>
+        <td mat-cell *matCellDef="let element"
+            [ngClass]="{'positive':element.dplus1 > 0,'negative':element.dplus1 < 0}">
+            {{element.dplus1}}%
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="firstday">
+        <th mat-header-cell *matHeaderCellDef> Variação em relação a primeira data </th>
+        <td mat-cell *matCellDef="let element"
+            [ngClass]="{'positive':element.dplus1 > 0,'negative':element.dplus1 < 0}">
+            {{element.firstday}}%
+        </td>
+    </ng-container>
+
+    <tr mat-header-row color="primary" *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

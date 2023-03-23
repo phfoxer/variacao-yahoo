@@ -1,0 +1,10 @@
+<div class="container">
+    <header class="container-header">
+        <a color="primary" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            mat-button>Home</a>
+        <a color="primary" [routerLink]="['/chart']" routerLinkActive="active" mat-button>Gráfico</a>
+    </header>
+    <div class="container-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
